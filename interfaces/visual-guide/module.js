@@ -16,7 +16,7 @@ visualGuide.events = {
 		$('#viewport-content > *').removeObject({});
 		$(visualGuide.visualGroups[sName]).createObject({appendTo:'#viewport-content'});
 		visualGuide.currentView = sName;
-		
+
 	},
 
 	animateLevelBar:{
@@ -25,7 +25,7 @@ visualGuide.events = {
 			var elemID = $(this).attr('id');
 			visualGuide.events.animateLevelBar.bars[elemID] = setInterval(function(){visualGuide.events.animateLevelBar.timer(elemID);}, 1000);
 		},
-		
+
 		timer:function(elemID){
 			if($('#'+elemID).length){
 				$('#'+elemID).objectSettings({level:Math.floor((Math.random() * 100) + 1)});
@@ -35,53 +35,53 @@ visualGuide.events = {
 			}
 		}
 	},
-	
+
 	numberGenerate:{
 		six:function(){
 			var newValue = Math.floor(Math.random()*900000) + 100000
 			$(this).objectSettings({text:newValue.toString()});
 		},
-		
+
 		three:function(){
 			var newValue = Math.floor(Math.random()*900) + 100
 			$(this).objectSettings({text:newValue.toString()});
-		}	
+		}
 	}
-}		   
+}
 
 //Element Type Groups
 visualGuide.visualGroups = {
-		
+
 		//Brackets
 		bracket:{type:'wrapper', class:'sdk bracket typeA', children:[
 				{type:'wrapper', class:'content'},
-				{type:'elbow', version:'top-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},	
-				{type:'elbow', version:'top-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},	
-				{type:'elbow', version:'bottom-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},	
-				{type:'elbow', version:'bottom-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},        
+				{type:'elbow', version:'top-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},
+				{type:'elbow', version:'top-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},
+				{type:'elbow', version:'bottom-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},
+				{type:'elbow', version:'bottom-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar'}], noEvent:true},
 				{type:'column', flex:'v', children:[
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar', color:'bg-white'}]},
-					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}                     
+					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}
 				]},
 				{type:'column', flex:'v', children:[
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
-					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}                     
+					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}
 				]},
 				{type:'column', flex:'v', children:[
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors), children:[{type:'bar', color:'bg-white'}]},
-					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}                    
+					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}
 				]},
 				{type:'column', flex:'v', children:[
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)},
-					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}                     
+					{type:'bar', flexC:'v', color:LCARS.colorGen(visualGuide.uiColors)}
 				]}
 			]
 		},
-		
+
 		//All Text
 		typography:{
 			type:'content',
@@ -103,15 +103,15 @@ visualGuide.visualGroups = {
 					{type:'htmlTag', tag:'li', text:'MEMORY BUFFER', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')}
 				]}
 			]
-				
-			
+
+
 		},
-		
+
 		//All Buttons
 		buttons:{
 			type:'content',
 			children:[
-				
+
 				//Basic Buttons
 				{type:'row', flex:'h', style:'margin-bottom:30px;', children:[
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
@@ -143,10 +143,10 @@ visualGuide.visualGroups = {
 						{type:'button', version:'right', altLabel:'AltLabel Right', style:'text-align:right;', color:LCARS.colorGen(visualGuide.uiColors)}
 					]},
 				]},
-				
+
 				//Complex Buttons - Radio Buttons - Checkbox Buttons
 				{type:'row', flex:'h', style:'margin-bottom:30px;', children:[
-					
+
 					//Basic Complex Button
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'Complex Buttons', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -159,7 +159,7 @@ visualGuide.visualGroups = {
 						{type:'complexButton', template:LCARS.templates.sdk.buttons.complex.typeD, label:'Type D', color:LCARS.colorGen(visualGuide.uiColors)},
 						{type:'complexButton', template:LCARS.templates.sdk.buttons.complex.typeDR, label:'Type DR', color:LCARS.colorGen(visualGuide.uiColors)}
 					]},
-					
+
 					//Complex Button w/ Text
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'Complex Text', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -178,7 +178,7 @@ visualGuide.visualGroups = {
 						{type:'complexButton', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'00', label:'Type G', color:LCARS.colorGen(visualGuide.uiColors)},
 						{type:'complexButton', template:LCARS.templates.sdk.buttons.complexText.typeGR, text:'00', label:'Type GR', color:LCARS.colorGen(visualGuide.uiColors)}
 					]},
-					
+
 					//Radio Buttons
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'Complex Radio', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -194,7 +194,7 @@ visualGuide.visualGroups = {
 						{type:'radio', template:LCARS.templates.sdk.buttons.radioText.typeC, name:'samples1', text:'00', label:'Type B', color:LCARS.colorGen(visualGuide.uiColors), click:function(){}},
 						{type:'radio', template:LCARS.templates.sdk.buttons.radioText.typeCR, name:'samples1', text:'00', label:'Type BR', color:LCARS.colorGen(visualGuide.uiColors), click:function(){}},
 					]},
-					
+
 					//Checkbox Buttons
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'Complex Checkbox', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -209,7 +209,7 @@ visualGuide.visualGroups = {
 						{type:'checkbox', template:LCARS.templates.sdk.buttons.checkboxText.typeBR, name:'samples11', text:'00', label:'Type BR', color:LCARS.colorGen(visualGuide.uiColors), click:function(){}},
 					]},
 				]},
-				
+
 				//End Cap Buttons
 				{type:'row', flex:'h', style:'margin-bottom:30px;', children:[
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
@@ -243,7 +243,7 @@ visualGuide.visualGroups = {
 				]},
 			]
 		},
-		
+
 		//All Elbows
 		elbows:{
 			type:'content',
@@ -256,7 +256,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:125px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Large Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -274,7 +274,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:125px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Large Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -282,7 +282,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'large', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Large
@@ -293,7 +293,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:75px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:75px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:75px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'margin-bottom:50px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Large V Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -311,7 +311,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'margin-bottom:50px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Large V Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -319,7 +319,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'large', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-top:75px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Small
@@ -330,7 +330,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Small Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -345,7 +345,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Small Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -353,7 +353,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'small', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Small
@@ -364,7 +364,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Small V Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -379,7 +379,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Small V Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -387,7 +387,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'small', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Medium
@@ -398,7 +398,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Medium Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -413,7 +413,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Medium Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -421,7 +421,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'medium', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Medium
@@ -432,7 +432,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Medium V Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -447,7 +447,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Medium V Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -455,7 +455,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'medium', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Base
@@ -466,7 +466,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Base Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -481,7 +481,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Base Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -489,7 +489,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'base', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 				//Base
@@ -500,7 +500,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Base V Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -515,7 +515,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Base V Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -523,9 +523,9 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', size:'base', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:45px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
-				]}, 
+				]},
 				//Default
 				{type:'row', flex:'h', children:[
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
@@ -534,7 +534,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Default Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -549,7 +549,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Default Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -557,10 +557,10 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
-				//Default 
+				//Default
 				{type:'row', flex:'h', children:[
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Default Vertical Top Left', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -568,7 +568,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'top-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'top-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'top-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Default Vertical Top Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -583,7 +583,7 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-left', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'padding-left:60px; padding-right:30px;', children:[
 						{type:'htmlTag', tag:'h4', text:'Default Vertical Bottom Right', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -591,13 +591,13 @@ visualGuide.visualGroups = {
 						{type:'elbow', version:'bottom-right', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:right;', altLabel:'Alt Label Right' },
 						{type:'elbow', version:'bottom-right', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', label:'Label Left' },
 						{type:'elbow', version:'bottom-right', orient:'vertical', color:LCARS.colorGen(visualGuide.uiColors), style:'margin-bottom:30px; text-align:left;', altLabel:'Alt Label Left' }
-	
+
 					]},
 				]},
 
-			]		
+			]
 		},
-		
+
 		//All Media
 		Media:{
 			type:'content',
@@ -609,14 +609,14 @@ visualGuide.visualGroups = {
 				]},
 				{type:'column', flexC:'h', children:[
 					{type:'htmlTag', tag:'h2', text:'SVG', style:'text-align:center;', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
-					{type:'svg', xml:'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}.st1{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_2_);}.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#CC0000;}.st3{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_3_);}.st4{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_4_);}</style><g id="LCARS_SDK_-_command_2_"><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="129.9082" y1="506" x2="129.9082" y2="425.6671"><stop offset="0" style="stop-color:#3399CC"/><stop offset="1" style="stop-color:#006699"/></linearGradient><path class="st0" d="M162.8,425.7C124.7,467.4,97,506,97,506s1.5-31.2,8.7-80.3H162.8z"/><linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="405.5803" y1="464.5993" x2="405.5803" y2="425.673"><stop offset="0" style="stop-color:#3399CC"/><stop offset="1" style="stop-color:#006699"/></linearGradient><path class="st1" d="M411.2,425.7c3.3,24.5,4.5,38.9,4.5,38.9s-8.1-16.8-20.2-38.9L411.2,425.7z"/><path class="st2" d="M191.9,395.7c-6.8,6.7-13.5,13.5-19.9,20.3l-64.6-0.3c1-6.4,2.1-13.1,3.3-20L191.9,395.7z"/><linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="187.4707" y1="385.6646" x2="187.4707" y2="6"><stop offset="0" style="stop-color:#006699"/><stop offset="1" style="stop-color:#003366"/></linearGradient><path class="st3" d="M262.6,339.4c-20.1,11.5-40.7,28-60.4,46.3l-90,0C131.2,280.5,172.7,126.3,262.7,6"/><linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="338.8686" y1="385.6671" x2="338.8686" y2="6"><stop offset="0" style="stop-color:#006699"/><stop offset="1" style="stop-color:#003366"/></linearGradient><path class="st4" d="M272.7,6c79.8,123.6,116.6,285,132.4,379.7l-33,0c-18.1-28.7-38.7-55.8-55-62.2c-13.9,1.3-29,7.1-44.4,15.9"/><path class="st2" d="M389.9,415.7c-3.7-6.5-7.6-13.2-11.7-20l28.5,0c1.1,7.1,2.1,13.8,3,20L389.9,415.7z"/></g></svg>'}	
+					{type:'svg', xml:'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}.st1{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_2_);}.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#CC0000;}.st3{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_3_);}.st4{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_4_);}</style><g id="LCARS_SDK_-_command_2_"><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="129.9082" y1="506" x2="129.9082" y2="425.6671"><stop offset="0" style="stop-color:#3399CC"/><stop offset="1" style="stop-color:#006699"/></linearGradient><path class="st0" d="M162.8,425.7C124.7,467.4,97,506,97,506s1.5-31.2,8.7-80.3H162.8z"/><linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="405.5803" y1="464.5993" x2="405.5803" y2="425.673"><stop offset="0" style="stop-color:#3399CC"/><stop offset="1" style="stop-color:#006699"/></linearGradient><path class="st1" d="M411.2,425.7c3.3,24.5,4.5,38.9,4.5,38.9s-8.1-16.8-20.2-38.9L411.2,425.7z"/><path class="st2" d="M191.9,395.7c-6.8,6.7-13.5,13.5-19.9,20.3l-64.6-0.3c1-6.4,2.1-13.1,3.3-20L191.9,395.7z"/><linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="187.4707" y1="385.6646" x2="187.4707" y2="6"><stop offset="0" style="stop-color:#006699"/><stop offset="1" style="stop-color:#003366"/></linearGradient><path class="st3" d="M262.6,339.4c-20.1,11.5-40.7,28-60.4,46.3l-90,0C131.2,280.5,172.7,126.3,262.7,6"/><linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="338.8686" y1="385.6671" x2="338.8686" y2="6"><stop offset="0" style="stop-color:#006699"/><stop offset="1" style="stop-color:#003366"/></linearGradient><path class="st4" d="M272.7,6c79.8,123.6,116.6,285,132.4,379.7l-33,0c-18.1-28.7-38.7-55.8-55-62.2c-13.9,1.3-29,7.1-44.4,15.9"/><path class="st2" d="M389.9,415.7c-3.7-6.5-7.6-13.2-11.7-20l28.5,0c1.1,7.1,2.1,13.8,3,20L389.9,415.7z"/></g></svg>'}
 				]}
-				
-				
-					
+
+
+
 			]
 		},
-		
+
 		//All Addons
 		addons:{
 			type:'content',
@@ -666,7 +666,7 @@ visualGuide.visualGroups = {
 						{type:'levelBar', orient:'vertical', noEvent:true, direction:'reverse', color:LCARS.colorGen(visualGuide.uiColors), altLabel:'100', level:0},
 					]}
 				]},
-				
+
 				{type:'htmlTag', tag:'h2', text:'Scroll Button', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
 				{type:'row', children:[
 					{type:'column',  children:[
@@ -684,10 +684,10 @@ visualGuide.visualGroups = {
 						{type:'scrollButton', color:LCARS.colorGen(visualGuide.uiColors), template:LCARS.templates.sdk.scrollButton.typeAH, target:'#scroll-wrapper', step:25},
 						{type:'scrollButton', color:LCARS.colorGen(visualGuide.uiColors), direction:'right', template:LCARS.templates.sdk.scrollButton.typeAH, target:'#scroll-wrapper', step:25}
 					]},
-				]}				
-			
+				]}
+
 		]},
-		
+
 		//All Dialogs
 		dialogs:{
 			type:'content',
@@ -699,16 +699,16 @@ visualGuide.visualGroups = {
 				]},
 				{type:'row', children:[
 					{type:'dialog', style:'width:100%; margin-top:30px;', template:LCARS.templates.sdk.dialog.typeT, content:[{type:'htmlTag', tag:'p', text:'"Dialog TypeT -- P Tag 24px Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 1234567890!@#$%^&*()-=_+/?\|[]{}`~"', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')}]}
-					
+
 				]}
-			
-		]},	
-		
+
+		]},
+
 		//All Element States
 		states:{
 			type:'content',
 			children:[
-			
+
 				{type:'htmlTag', tag:'h3', text:'States', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
 				{type:'row', flex:'h', style:'margin-bottom:30px; width:100%; min-width: 100%; height: 60px;', children:[
 					{type:'button', version:'pill', label:'Disabled', disabled:true, color:LCARS.colorGen(visualGuide.uiColors)},
@@ -717,7 +717,7 @@ visualGuide.visualGroups = {
 					{type:'button', version:'pill', label:'White Flash', state:'white-flash', style:'text-align:right;', color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'button', version:'pill', label:'Red Dark Flash', state:'red-dark-blink', style:'text-align:right;', color:LCARS.colorGen(visualGuide.uiColors)},
 				]},
-				
+
 				{type:'row', flex:'h', style:'margin-bottom:30px;', children:[
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'SDK Default', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -726,7 +726,7 @@ visualGuide.visualGroups = {
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'USS Not Affiliated Theme Default', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'003366', label:'bg-', color:'bg-'},
-						
+
 					]},
 				]},
 				{type:'htmlTag', tag:'h3', text:'Theme USS Not Affiliated  w/ Red Alert', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -736,26 +736,26 @@ visualGuide.visualGroups = {
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'3399cc', label:'bg-blue-2', color:'bg-blue-2'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'006699', label:'bg-blue-3', color:'bg-blue-3'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'003366', label:'bg-blue-4', color:'bg-blue-4'},
-						
+
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'ccddbb', label:'bg-green-1', color:'bg-green-1'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'00cc99', label:'bg-green-2', color:'bg-green-2'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'009999', label:'bg-green-3', color:'bg-green-3'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'006666', label:'bg-green-4', color:'bg-green-4'},
-						
-						
-						
+
+
+
 					]},
 					{type:'column', flex:'v', flexC:'h', version:'red-alert', children:[
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'cccccc', label:'bg-blue-1', color:'bg-blue-1'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'999999', label:'bg-blue-2', color:'bg-blue-2'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'cc0000', label:'bg-blue-3', color:'bg-blue-3'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'660000', label:'bg-blue-4', color:'bg-blue-4'},
-						
+
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'ffff66', label:'bg-green-1', color:'bg-green-1'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'ff0000', label:'bg-green-2', color:'bg-green-2'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'990000', label:'bg-green-3', color:'bg-green-3'},
-						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'330000', label:'bg-green-4', color:'bg-green-4'},					
-						
+						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'330000', label:'bg-green-4', color:'bg-green-4'},
+
 					]},
 				]},
 				{type:'row', flex:'h', style:'margin-bottom:30px;', children:[
@@ -769,9 +769,9 @@ visualGuide.visualGroups = {
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'666666', label:'bg-grey-3', color:'bg-grey-3'},
 						{type:'complexButton', class:'text-transform-none', template:LCARS.templates.sdk.buttons.complexText.typeG, text:'ffffff', label:'bg-white', color:'bg-white'},
 
-						
-						
-						
+
+
+
 					]},
 					{type:'column', flex:'v', flexC:'h', style:'', children:[
 						{type:'htmlTag', tag:'h3', text:'Text Colors', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
@@ -803,23 +803,23 @@ visualGuide.visualGroups = {
 						]},
 					]},
 				]},
-				
-		]},	
-		
-		//All Basic Components		
+
+		]},
+
+		//All Basic Components
 		components:{
 			type:'content',
 			children:[
 				{type:'row', flex:'h', children:[
 					{type:'column', flexC:'h', children:[
-						{type:'htmlTag', tag:'h3', text:'Block', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},			
+						{type:'htmlTag', tag:'h3', text:'Block', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
 						{type:'block', color:LCARS.colorGen(visualGuide.uiColors), label:'Block Label'},
 						{type:'block', color:LCARS.colorGen(visualGuide.uiColors), altLabel:'Block Alt Label'},
 						{type:'block', color:LCARS.colorGen(visualGuide.uiColors), style:'text-align:right', label:'Block Label'},
 						{type:'block', color:LCARS.colorGen(visualGuide.uiColors), style:'text-align:right', altLabel:'Block Alt Label'},
 					]},
 					{type:'column', flexC:'h', children:[
-						{type:'htmlTag', tag:'h3', text:'Bar', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},			
+						{type:'htmlTag', tag:'h3', text:'Bar', color:LCARS.colorGen(visualGuide.uiColors).replace('bg-', 'text-')},
 						{type:'bar', color:LCARS.colorGen(visualGuide.uiColors), label:'label'},
 						{type:'bar', color:LCARS.colorGen(visualGuide.uiColors), altLabel:'altLabel'},
 						{type:'bar', color:LCARS.colorGen(visualGuide.uiColors), size:'tiny'},
@@ -858,60 +858,60 @@ visualGuide.visualGroups = {
 						{type:'oval', color:LCARS.colorGen(visualGuide.uiColors), size:'small'},
 					]}
 				]}
-		]},			
-		
+		]},
+
 	};
 
 //This is the UI
 visualGuide.uiViewport = {
-	type:'wrapper', 
+	type:'wrapper',
 	class:'dialog typeD',
 	flex:'v',
 	version:'column',
 	children:[
 		//Header
 		{type:'row', version:'header', flex:'h', children:[{type:'title', text:'LCARS SDK Visual Guide'}, {type:'bar', flexC:'h', color:LCARS.colorGen(visualGuide.uiColors)}]},
-		
+
 		//Scroll Content Area
 		{type:'content', flexC:'v', id:'viewport-content'},
-		
+
 		//Footer
 		{type:'row', version:'footer', flex:'h', children:[{type:'button', color:LCARS.colorGen(visualGuide.uiColors), noEvent:true, flexC:'h'}]},
-	
+
 		//Section Control Buttons
 		{type:'column', id:'ui-controls',children:[
-			
+
 			//Top Row
 			{type:'row', flex:'h', children:[
-			
+
 				{type:'button', flexC:'h', color:LCARS.colorGen(visualGuide.uiColors), label:'Buttons', click:function(){visualGuide.events.generateVisualGroups('buttons')}},
-				
+
 				{type:'button', flexC:'h', color:LCARS.colorGen(visualGuide.uiColors),  label:'Elbows', click:function(){visualGuide.events.generateVisualGroups('elbows')}},
-				
+
 				{type:'complexButton', color:LCARS.colorGen(visualGuide.uiColors), arrive:visualGuide.events.numberGenerate.three, text:'562',  template:[{type:'button'}, {type:'block'}, {type:'text'}], label:'Addons', click:function(){visualGuide.events.generateVisualGroups('addons');}},
-				
+
 				{type:'complexButton', color:LCARS.colorGen(visualGuide.uiColors), arrive:visualGuide.events.numberGenerate.six,  text:'685431',  template:[{type:'text'}, {type:'button'}], label:'Dialogs', click:function(){visualGuide.events.generateVisualGroups('dialogs')}},
 			]},
-			
+
 			//Bottom Row
 			{type:'row', flex:'h', children:[
-					{type:'button', label:'Media', flexC:'h', style:'max-width:165px;', color:LCARS.colorGen(visualGuide.uiColors), click:function(){visualGuide.events.generateVisualGroups('Media')}}, 
-					{type:'button', label:'Components', flexC:'h', style:'max-width:165px;', color:LCARS.colorGen(visualGuide.uiColors), click:function(){visualGuide.events.generateVisualGroups('components');}}, 
-					
+					{type:'button', label:'Media', flexC:'h', style:'max-width:165px;', color:LCARS.colorGen(visualGuide.uiColors), click:function(){visualGuide.events.generateVisualGroups('Media')}},
+					{type:'button', label:'Components', flexC:'h', style:'max-width:165px;', color:LCARS.colorGen(visualGuide.uiColors), click:function(){visualGuide.events.generateVisualGroups('components');}},
+
 				{type:'complexButton', flexC:'h', arrive:visualGuide.events.numberGenerate.three, color:LCARS.colorGen(visualGuide.uiColors), text:'648', template:[
-					{type:'button',label:'Typography', click:function(){visualGuide.events.generateVisualGroups('typography')}}, 
-					{type:'block',  color:LCARS.colorGen(visualGuide.uiColors)}, 
+					{type:'button',label:'Typography', click:function(){visualGuide.events.generateVisualGroups('typography')}},
+					{type:'block',  color:LCARS.colorGen(visualGuide.uiColors)},
 					{type:'text'}
 				]},
-				
+
 				{type:'complexButton', color:LCARS.colorGen(visualGuide.uiColors), arrive:visualGuide.events.numberGenerate.six, text:'023251', template:[{type:'text'}, {type:'button'}, {type:'cap', version:'right', color:LCARS.colorGen(visualGuide.uiColors)}], label:'States-colors', click:function(){visualGuide.events.generateVisualGroups('states')}},
-			]}       
-		]}	
-	
+			]}
+		]}
+
 	]
 }
-	   
-	   
+
+
 
 $(document).on('ready', function(){
 	$(visualGuide.uiViewport).createObject({appendTo:'body', success:function(){
