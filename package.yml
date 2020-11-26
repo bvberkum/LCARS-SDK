@@ -1,0 +1,14 @@
+- type: application/vnd.org.wtwta.project
+  main: lcarssdk
+  id: lcarssdk
+  name: LCARS-SDK (fork)
+  slug-id: LCARS-SDK
+  license: LCARS SDK License v4 2019
+
+  repositories:
+    origin: http://github.com/dotmpe/LCARS-SDK.git
+    gh: git@github.com:dotmpe/LCARS-SDK.git
+    aric: https://github.com/Aricwithana/LCARS-SDK.git
+
+  urls:
+    license-info: https://github.com/Aricwithana/LCARS-SDK/blob/master/LICENSE.md
