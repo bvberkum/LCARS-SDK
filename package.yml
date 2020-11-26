@@ -9,6 +9,12 @@
     origin: http://github.com/dotmpe/LCARS-SDK.git
     gh: git@github.com:dotmpe/LCARS-SDK.git
     aric: https://github.com/Aricwithana/LCARS-SDK.git
+    sfranzyshen: https://github.com/sfranzyshen/LCARS-SDK-ARCHIVE.git
+    crstmkt: https://github.com/crstmkt/LCARS-SDK.git
 
   urls:
+    facebook: https://www.facebook.com/LCARSSDK
+    wiki: https://github.com/Aricwithana/LCARS-SDK/wiki
     license-info: https://github.com/Aricwithana/LCARS-SDK/blob/master/LICENSE.md
+    forks: https://github.com/Aricwithana/LCARS-SDK/network
+    sfranzyshen: https://www.sfranzyshen.org/LCARS-SDK-ARCHIVE/
