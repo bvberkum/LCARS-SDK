@@ -11,6 +11,7 @@
     aric: https://github.com/Aricwithana/LCARS-SDK.git
     sfranzyshen: https://github.com/sfranzyshen/LCARS-SDK-ARCHIVE.git
     crstmkt: https://github.com/crstmkt/LCARS-SDK.git
+    25-5-bare: t460s:/srv/scm-git-25-5-t460s-mpe/LCARS-SDK.git
 
   urls:
     facebook: https://www.facebook.com/LCARSSDK
